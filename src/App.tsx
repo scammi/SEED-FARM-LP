@@ -13,10 +13,11 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 
-import CardContent from '@mui/material/CardContent';
 import Card from '@mui/material/Card';
-import TextField from '@mui/material/TextField';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
 
+import TextField from '@mui/material/TextField';
 
 import './App.css';
 
@@ -164,27 +165,15 @@ function App() {
       if(approvel > new BigNumber(100*10**18)){
          return(
             <>
-               <Row>
-                  <Col>
-                     <button className="button-18" onClick={stakeSeed}>stake SEED</button>
-                  </Col>
-                  <Col>
-                     <button className="button-18" onClick={exitSeed}>withdraw</button>
-                  </Col>
-               </Row>
+               <Button color="inherit" variant="outlined" onClick={stakeSeed}>stake SEED</Button>
+               <Button color="inherit" variant="outlined" onClick={exitSeed}>withdraw</Button>
             </>
-         );
+         )
       } else {
          return(
             <>
-               <Row>
-                  <Col>
-                     <button className="button-18" onClick={approveSeed}>approve SEED</button>
-                  </Col>
-                  <Col>
-                     <button className="button-18" onClick={exitSeed}>withdraw</button>
-                  </Col>
-               </Row>
+               <Button color="inherit" variant="outlined" onClick={approveSeed}>approve SEED</Button>
+               <Button color="inherit" variant="outlined" onClick={exitSeed}>withdraw</Button>
             </>
          );
       }
@@ -210,7 +199,7 @@ function App() {
             <Grid item xs={12}>
                <Grid container justifyContent="center">
 
-                  <Card sx={{ maxWidth: 500, minWidth: 600, margin: "2rem"}}>
+                  <Card sx={{ maxWidth: 500, minWidth: 600, margin: "2rem", p:2}}>
                      <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
                            Seed Farming !
@@ -248,10 +237,13 @@ function App() {
                            label="Value to stake" 
                            variant="outlined" 
                            onChange={(event) => {setStake(event.target.value)}} 
-                           sx={{m:2}}
+                           sx={{mt:2, width: '100%'}}
                         />
-                        {renderButton()}
+
                      </CardContent>
+                     <CardActions>
+                        {renderButton()}
+                     </CardActions>
                   </Card>
                   
                </Grid>
