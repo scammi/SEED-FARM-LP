@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
 
 import './App.css';
 
@@ -184,64 +185,70 @@ function App() {
 
    return (
       <>
-         <Container id="mainContent" fluid>
-            <Box sx={{ flexGrow: 1 }}>
-               <AppBar position="static">
-                  <Toolbar>
-                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        <span className="priceField">{"1 SEED = " + (tokenPrice.toFixed(5)) + " FTM"}</span>
-                     </Typography>
-                     {accounts 
-                        ? (<Button color="inherit" variant="outlined" onClick={disconnectWallet}>{shortenAddress(accounts)}</Button>)
-                        : (<Button color="inherit" variant="outlined" onClick={connectWallet}>connect</Button>)
-                     }
-                  </Toolbar>
-               </AppBar>
-            </Box>
-            <ToastContainer>
+         <Box sx={{ flexGrow: 1 }}>
+            <AppBar position="static">
+               <Toolbar>
+                  <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                     <span className="priceField">{"1 SEED = " + (tokenPrice.toFixed(5)) + " FTM"}</span>
+                  </Typography>
+                  {accounts 
+                     ? (<Button color="inherit" variant="outlined" onClick={disconnectWallet}>{shortenAddress(accounts)}</Button>)
+                     : (<Button color="inherit" variant="outlined" onClick={connectWallet}>connect</Button>)
+                  }
+               </Toolbar>
+            </AppBar>
+         </Box>
+         
+         <Grid sx={{ flexGrow: 1 }} container spacing={2}>
+            <Grid item xs={12}>
+               <Grid container justifyContent="center">
+                  
+                  <div className="farmCard">
+                     <span>
+                        {"Balance in your wallet: " + new BigNumber(farmData.userBalance.toString()).shiftedBy(-18).toFixed(3).toString() +  " SEED/FTM spLP"}
+                     </span>
+                     <div>
+                        <Row>
+                           <Col>
+                              {"Your Stake: "} 
+                              <span className="cardValues">
+                                 {new BigNumber(farmData.userStake.toString()).shiftedBy(-18).toFixed(5).toString()} 
+                              </span>
+                              {" SEED/FTM spLP"}
+                           </Col>
+                        </Row>
+                        <Row>
+                           <Col>
+                              {"Your Reward: "} 
+                              <span className="cardValues">
+                                 {new BigNumber(farmData.userReward.toString()).shiftedBy(-18).toFixed(5).toString()}
+                              </span>
+                              {" SEED"}
+                           </Col>
+                        </Row>
+                        <Row>
+                           <Col>
+                              {"Farm APY: "}
+                              <span className="cardValues">
+                                 {new BigNumber(apr.toString()).toFixed(0).toString()}
+                              </span>
+                              {" %"}
+                           </Col>
+                        </Row>
+                     </div>
+                     <div>
+                        <FloatingLabel controlId="floatingInput" label="Value to stake" className="mb-3">
+                           <Form.Control type="number" onChange={(event) => {setStake(event.target.value)}}/>
+                        </FloatingLabel>
+                        {renderButton()}
+                     </div>
+                  </div>
 
-            </ToastContainer>
-            <div className="farmCard">
-               <span>
-                  {"Balance in your wallet: " + new BigNumber(farmData.userBalance.toString()).shiftedBy(-18).toFixed(3).toString() +  " SEED/FTM spLP"}
-               </span>
-               <div>
-                  <Row>
-                     <Col>
-                        {"Your Stake: "} 
-                        <span className="cardValues">
-                           {new BigNumber(farmData.userStake.toString()).shiftedBy(-18).toFixed(5).toString()} 
-                        </span>
-                        {" SEED/FTM spLP"}
-                     </Col>
-                  </Row>
-                  <Row>
-                     <Col>
-                        {"Your Reward: "} 
-                        <span className="cardValues">
-                           {new BigNumber(farmData.userReward.toString()).shiftedBy(-18).toFixed(5).toString()}
-                        </span>
-                        {" SEED"}
-                     </Col>
-                  </Row>
-                  <Row>
-                     <Col>
-                        {"Farm APY: "}
-                        <span className="cardValues">
-                           {new BigNumber(apr.toString()).toFixed(0).toString()}
-                        </span>
-                        {" %"}
-                     </Col>
-                  </Row>
-               </div>
-               <div>
-                  <FloatingLabel controlId="floatingInput" label="Value to stake" className="mb-3">
-                     <Form.Control type="number" onChange={(event) => {setStake(event.target.value)}}/>
-                  </FloatingLabel>
-                  {renderButton()}
-               </div>
-            </div>
-         </Container>
+               </Grid>
+            </Grid>
+         </Grid>
+
+
       </>
    );
 }
