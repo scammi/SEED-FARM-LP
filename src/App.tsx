@@ -150,7 +150,12 @@ function App() {
          return(
             <>
                <Row>
-                  <Col><button className="button-18" onClick={stakeSeed}>stake SEED</button></Col><Col><button className="button-18" onClick={exitSeed}>withdraw</button></Col>
+                  <Col>
+                     <button className="button-18" onClick={stakeSeed}>stake SEED</button>
+                  </Col>
+                  <Col>
+                     <button className="button-18" onClick={exitSeed}>withdraw</button>
+                  </Col>
                </Row>
             </>
          );
@@ -158,7 +163,12 @@ function App() {
          return(
             <>
                <Row>
-                  <Col><button className="button-18" onClick={approveSeed}>approve SEED</button></Col><Col><button className="button-18" onClick={exitSeed}>withdraw</button></Col>
+                  <Col>
+                     <button className="button-18" onClick={approveSeed}>approve SEED</button>
+                  </Col>
+                  <Col>
+                     <button className="button-18" onClick={exitSeed}>withdraw</button>
+                  </Col>
                </Row>
             </>
          );
@@ -169,24 +179,52 @@ function App() {
       <>
          <Container id="mainContent" fluid>
             <Row>
-               
-               <Col><span className="priceField">{"1 SEED = " + (tokenPrice.toFixed(5)) + " FTM"}</span></Col>
-               <Col><span className="connectSpan">{accounts ? (<button className="button-18" onClick={disconnectWallet}>{shortenAddress(accounts)}</button>):(<button className="button-18" onClick={connectWallet}>connect</button>)}</span></Col>
+               <Col>
+                  <span className="priceField">{"1 SEED = " + (tokenPrice.toFixed(5)) + " FTM"}</span>
+               </Col>
+               <Col>
+                  <span className="connectSpan">
+                     {accounts 
+                        ? (<button className="button-18" onClick={disconnectWallet}>{shortenAddress(accounts)}</button>)
+                        : (<button className="button-18" onClick={connectWallet}>connect</button>)
+                     }
+                  </span>
+               </Col>
             </Row>
             <ToastContainer>
 
             </ToastContainer>
             <div className="farmCard">
-               <span>{"Balance in your wallet: " + new BigNumber(farmData.userBalance.toString()).shiftedBy(-18).toFixed(3).toString() +  " SEED/FTM spLP"}</span>
+               <span>
+                  {"Balance in your wallet: " + new BigNumber(farmData.userBalance.toString()).shiftedBy(-18).toFixed(3).toString() +  " SEED/FTM spLP"}
+               </span>
                <div>
                   <Row>
-                     <Col>{"Your Stake: "} <span className="cardValues">{new BigNumber(farmData.userStake.toString()).shiftedBy(-18).toFixed(5).toString()}</span>{" SEED/FTM spLP"}</Col>
+                     <Col>
+                        {"Your Stake: "} 
+                        <span className="cardValues">
+                           {new BigNumber(farmData.userStake.toString()).shiftedBy(-18).toFixed(5).toString()} 
+                        </span>
+                        {" SEED/FTM spLP"}
+                     </Col>
                   </Row>
                   <Row>
-                     <Col>{"Your Reward: "} <span className="cardValues">{new BigNumber(farmData.userReward.toString()).shiftedBy(-18).toFixed(5).toString()}</span>{" SEED"}</Col>
+                     <Col>
+                        {"Your Reward: "} 
+                        <span className="cardValues">
+                           {new BigNumber(farmData.userReward.toString()).shiftedBy(-18).toFixed(5).toString()}
+                        </span>
+                        {" SEED"}
+                     </Col>
                   </Row>
                   <Row>
-                     <Col>{"Farm APY: "} <span className="cardValues">{new BigNumber(apr.toString()).toFixed(0).toString()}</span>{" %"}</Col>
+                     <Col>
+                        {"Farm APY: "}
+                        <span className="cardValues">
+                           {new BigNumber(apr.toString()).toFixed(0).toString()}
+                        </span>
+                        {" %"}
+                     </Col>
                   </Row>
                </div>
                <div>
