@@ -1,0 +1,102 @@
+.App {
+  text-align: center;
+}
+
+li {
+   list-style: none;
+   font-size: 14px;
+}
+
+.connectSpan {
+   float: right;
+}
+
+h1 {
+   color: rgb(228, 240, 228);
+   
+   
+ }
+
+#mainContent {
+   background: rgb(2,0,36);
+   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgb(7, 9, 15) 100%);
+   background-color: rgb(56, 49, 104);
+   border-radius: 35px;
+   border-color: white;
+   width: 99%;
+   min-height: 480px;
+   margin: 5px;
+   padding: 10px 25px;
+}
+
+.priceField {
+   color: white;
+   font-weight: bold;
+}
+
+.farmCard {
+   width: 35%;
+   margin-left: auto;
+   margin-right: auto;
+   border-style: solid;
+   border-width: thin;
+   border-color: white;
+   background-color: rgb(255, 255, 255);
+   padding: 1rem;
+   border-radius: 1rem;
+   color: #000;
+   box-shadow: 3.1px 6.2px 6.2px rgb(0 0 0 / 40%);
+}
+.cardValues {
+   font-size: 20px;
+   margin: 10px;
+}
+
+/* CSS */
+.button-18 {
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  margin: 5px;
+  align-items: center;
+  background-color: #0A66C2;
+  border: 0;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  justify-content: center;
+  line-height: 20px;
+  width: 205px;
+  min-height: 40px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+}
+
+.button-18:hover,
+.button-18:focus {
+  background-color: #16437E;
+  color: #ffffff;
+}
+
+.button-18:active {
+  background: #09223b;
+  color: rgb(255, 255, 255, .7);
+}
+
+.button-18:disabled {
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, .08);
+  color: rgba(0, 0, 0, .3);
+}
