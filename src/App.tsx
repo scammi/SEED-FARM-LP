@@ -201,43 +201,45 @@ function App() {
 
                   <Card sx={{ maxWidth: 500, minWidth: 600, margin: "2rem", p:2}}>
                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
+                        <Typography gutterBottom variant="h4" component="div" sx={{mb:4}}>
                            Seed Farming !
                         </Typography>
-                        {/* <Typography variant="body2" color="text.secondary">
-                           Lizards are a widespread group of squamate reptiles, with over 6,000
-                           species, ranging across all continents except Antarctica
-                        </Typography> */}
-
-                        <span>
-                           {"Balance in your wallet: " + new BigNumber(farmData.userBalance.toString()).shiftedBy(-18).toFixed(3).toString() +  " SEED/FTM spLP"}
-                        </span>
                         <div>
-                           {"Your Stake: "} 
-                           <span className="cardValues">
+                           <div>
+                              <b>Balance in your wallet: </b>
+                              {new BigNumber(farmData.userBalance.toString()).shiftedBy(-18).toFixed(3).toString() +  " SEED/FTM spLP"}
+                           </div>
+
+                           <br />
+
+                           <div>
+                              <b>Your Stake: </b> 
                               {new BigNumber(farmData.userStake.toString()).shiftedBy(-18).toFixed(5).toString()} 
-                           </span>
-                           {" SEED/FTM spLP"}
+                              {" SEED/FTM spLP"}
+                           </div>
+
                            <br />
-                           {"Your Reward: "} 
-                           <span className="cardValues">
+
+                           <div>
+                              <b>Your Reward:</b>  
                               {new BigNumber(farmData.userReward.toString()).shiftedBy(-18).toFixed(5).toString()}
-                           </span>
-                           {" SEED"}
+                              {" SEED"}
+                           </div>
 
                            <br />
 
-                           {"Farm APY: "}
-                           <span className="cardValues">
+                           <div>
+                              <b>Farm APY:</b>
                               {new BigNumber(apr.toString()).toFixed(0).toString()}
-                           </span>
-                           {" %"}
+                              {" %"}
+                           </div>
                         </div>
+
                         <TextField 
                            label="Value to stake" 
                            variant="outlined" 
                            onChange={(event) => {setStake(event.target.value)}} 
-                           sx={{mt:2, width: '100%'}}
+                           sx={{mt:6, width: '100%'}}
                         />
 
                      </CardContent>
