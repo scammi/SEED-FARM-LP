@@ -241,6 +241,7 @@ function App() {
                            variant="outlined" 
                            onChange={(event) => {setStake(event.target.value)}} 
                            sx={{mt:6, width: '100%'}}
+                           disabled={(new BigNumber(farmData.userApproved.toString()) < new BigNumber(100*10**18))}
                         />
 
                      </CardContent>
