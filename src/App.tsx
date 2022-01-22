@@ -3,6 +3,13 @@ import {Contract, ethers} from 'ethers';
 import {Card, Container, Row, Col, FloatingLabel, Form, ToastContainer} from 'react-bootstrap';
 import {BigNumber} from 'bignumber.js';
 import {useCookies} from 'react-cookie';
+
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+
 import './App.css';
 
 import FarmConfig from './config/farm.config';
@@ -178,19 +185,19 @@ function App() {
    return (
       <>
          <Container id="mainContent" fluid>
-            <Row>
-               <Col>
-                  <span className="priceField">{"1 SEED = " + (tokenPrice.toFixed(5)) + " FTM"}</span>
-               </Col>
-               <Col>
-                  <span className="connectSpan">
+            <Box sx={{ flexGrow: 1 }}>
+               <AppBar position="static">
+                  <Toolbar>
+                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                        <span className="priceField">{"1 SEED = " + (tokenPrice.toFixed(5)) + " FTM"}</span>
+                     </Typography>
                      {accounts 
-                        ? (<button className="button-18" onClick={disconnectWallet}>{shortenAddress(accounts)}</button>)
-                        : (<button className="button-18" onClick={connectWallet}>connect</button>)
+                        ? (<Button color="inherit" variant="outlined" onClick={disconnectWallet}>{shortenAddress(accounts)}</Button>)
+                        : (<Button color="inherit" variant="outlined" onClick={connectWallet}>connect</Button>)
                      }
-                  </span>
-               </Col>
-            </Row>
+                  </Toolbar>
+               </AppBar>
+            </Box>
             <ToastContainer>
 
             </ToastContainer>
