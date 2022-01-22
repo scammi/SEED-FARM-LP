@@ -1,6 +1,8 @@
 import {useEffect, useState} from 'react';
 import {Contract, ethers} from 'ethers';
-import {Card, Container, Row, Col, FloatingLabel, Form, ToastContainer} from 'react-bootstrap';
+
+import {Row, Col, FloatingLabel, Form} from 'react-bootstrap';
+
 import {BigNumber} from 'bignumber.js';
 import {useCookies} from 'react-cookie';
 
@@ -10,6 +12,10 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
+
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+
 
 import './App.css';
 
@@ -202,48 +208,58 @@ function App() {
          <Grid sx={{ flexGrow: 1 }} container spacing={2}>
             <Grid item xs={12}>
                <Grid container justifyContent="center">
-                  
-                  <div className="farmCard">
-                     <span>
-                        {"Balance in your wallet: " + new BigNumber(farmData.userBalance.toString()).shiftedBy(-18).toFixed(3).toString() +  " SEED/FTM spLP"}
-                     </span>
-                     <div>
-                        <Row>
-                           <Col>
-                              {"Your Stake: "} 
-                              <span className="cardValues">
-                                 {new BigNumber(farmData.userStake.toString()).shiftedBy(-18).toFixed(5).toString()} 
-                              </span>
-                              {" SEED/FTM spLP"}
-                           </Col>
-                        </Row>
-                        <Row>
-                           <Col>
-                              {"Your Reward: "} 
-                              <span className="cardValues">
-                                 {new BigNumber(farmData.userReward.toString()).shiftedBy(-18).toFixed(5).toString()}
-                              </span>
-                              {" SEED"}
-                           </Col>
-                        </Row>
-                        <Row>
-                           <Col>
-                              {"Farm APY: "}
-                              <span className="cardValues">
-                                 {new BigNumber(apr.toString()).toFixed(0).toString()}
-                              </span>
-                              {" %"}
-                           </Col>
-                        </Row>
-                     </div>
-                     <div>
-                        <FloatingLabel controlId="floatingInput" label="Value to stake" className="mb-3">
-                           <Form.Control type="number" onChange={(event) => {setStake(event.target.value)}}/>
-                        </FloatingLabel>
-                        {renderButton()}
-                     </div>
-                  </div>
 
+                  <Card sx={{ maxWidth: 500, minWidth: 600, margin: "2rem"}}>
+                     <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                           Seed Farming !
+                        </Typography>
+                        {/* <Typography variant="body2" color="text.secondary">
+                           Lizards are a widespread group of squamate reptiles, with over 6,000
+                           species, ranging across all continents except Antarctica
+                        </Typography> */}
+
+                        <span>
+                           {"Balance in your wallet: " + new BigNumber(farmData.userBalance.toString()).shiftedBy(-18).toFixed(3).toString() +  " SEED/FTM spLP"}
+                        </span>
+                        <div>
+                           <Row>
+                              <Col>
+                                 {"Your Stake: "} 
+                                 <span className="cardValues">
+                                    {new BigNumber(farmData.userStake.toString()).shiftedBy(-18).toFixed(5).toString()} 
+                                 </span>
+                                 {" SEED/FTM spLP"}
+                              </Col>
+                           </Row>
+                           <Row>
+                              <Col>
+                                 {"Your Reward: "} 
+                                 <span className="cardValues">
+                                    {new BigNumber(farmData.userReward.toString()).shiftedBy(-18).toFixed(5).toString()}
+                                 </span>
+                                 {" SEED"}
+                              </Col>
+                           </Row>
+                           <Row>
+                              <Col>
+                                 {"Farm APY: "}
+                                 <span className="cardValues">
+                                    {new BigNumber(apr.toString()).toFixed(0).toString()}
+                                 </span>
+                                 {" %"}
+                              </Col>
+                           </Row>
+                        </div>
+                        <div>
+                           <FloatingLabel controlId="floatingInput" label="Value to stake" className="mb-3">
+                              <Form.Control type="number" onChange={(event) => {setStake(event.target.value)}}/>
+                           </FloatingLabel>
+                           {renderButton()}
+                        </div>
+                     </CardContent>
+                  </Card>
+                  
                </Grid>
             </Grid>
          </Grid>
