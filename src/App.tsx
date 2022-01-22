@@ -206,32 +206,33 @@ function App() {
                         </Typography>
                         <div>
                            <div>
-                              <b>Balance in your wallet: </b>
-                              {new BigNumber(farmData.userBalance.toString()).shiftedBy(-18).toFixed(3).toString() +  " SEED/FTM spLP"}
+                              <b>Un-staked balance in wallet: </b>
+                              {new BigNumber(farmData.userBalance.toString()).shiftedBy(-18).toFixed(3).toString() }
+                              <small> SEED/FTM spLP</small>
                            </div>
 
                            <br />
 
                            <div>
-                              <b>Your Stake: </b> 
+                              <b>Staked: </b> 
                               {new BigNumber(farmData.userStake.toString()).shiftedBy(-18).toFixed(5).toString()} 
-                              {" SEED/FTM spLP"}
+                              <small>  SEED/FTM spL</small>
                            </div>
 
                            <br />
 
                            <div>
-                              <b>Your Reward:</b>  
+                              <b>Rewards: </b>  
                               {new BigNumber(farmData.userReward.toString()).shiftedBy(-18).toFixed(5).toString()}
-                              {" SEED"}
+                              <small> SEED</small>
                            </div>
 
                            <br />
 
                            <div>
-                              <b>Farm APY:</b>
+                              <b>Farm APY: </b>
                               {new BigNumber(apr.toString()).toFixed(0).toString()}
-                              {" %"}
+                              <small> %</small>
                            </div>
                         </div>
 
